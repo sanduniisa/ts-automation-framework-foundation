@@ -3,6 +3,9 @@ import {createUser} from './factories/userFactory';
 import {printProductSummary, printUserScenario} from './utils/printUtils';
 import {Product} from './types/product.types';
 import {createProduct} from './factories/productFactory';
+import {createOrder} from './factories/orderFactory';
+import {printOrderSummary} from './utils/printUtils';
+import { backpack, bikeLight, tshirt } from './test-data/products';
 
 const adminUser = createUser({
     username: 'admin_user',
@@ -25,4 +28,5 @@ for (const product of products) {
     printProductSummary(product);
 }
    
-
+const order = createOrder(standardUser, [backpack, bikeLight, tshirt]);
+printOrderSummary(order);
